@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bioTab"
+        android:enabled="true"
+        android:icon="@drawable/bio"
+        android:title="Bio"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/albumsTab"
+        android:enabled="true"
+        android:icon="@drawable/album"
+        android:title="Albums"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/similarArtistsTab"
+        android:enabled="true"
+        android:icon="@drawable/magnify"
+        android:title="Similar Artists"
+        app:showAsAction="ifRoom"/>
+</menu>
