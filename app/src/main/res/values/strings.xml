@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Music Database</string>
+    <string name="last_fm_api_key">5a3027525316600cd981c873f7dc54c1</string>
+    <string name="response_format">json</string>
 </resources>

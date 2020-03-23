@@ -82,7 +82,7 @@ public class BioFragment extends Fragment {
         }
 
         if (!searchQuery.equals("")) {
-            apiInterface.getArtistInfo(searchQuery, "5a3027525316600cd981c873f7dc54c1", "json").enqueue(getBioCallback);
+            apiInterface.getArtistInfo(searchQuery, getString(R.string.last_fm_api_key), getString(R.string.response_format)).enqueue(getBioCallback);
         }
     }
 

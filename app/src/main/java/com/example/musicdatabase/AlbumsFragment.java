@@ -80,12 +80,12 @@ public class AlbumsFragment extends Fragment {
         Bundle args = getArguments();
 
         String searchQuery = "";
-        if(args != null && args.containsKey(MainActivity.SEARCH_QUERY)){
+        if (args != null && args.containsKey(MainActivity.SEARCH_QUERY)) {
             searchQuery = args.getString(MainActivity.SEARCH_QUERY);
         }
 
         if (!searchQuery.equals("")) {
-            apiInterface.getAlbums(searchQuery, "5a3027525316600cd981c873f7dc54c1", "json").enqueue(getAlbumsCallback);
+            apiInterface.getAlbums(searchQuery, getString(R.string.last_fm_api_key), getString(R.string.response_format)).enqueue(getAlbumsCallback);
         }
     }
 
