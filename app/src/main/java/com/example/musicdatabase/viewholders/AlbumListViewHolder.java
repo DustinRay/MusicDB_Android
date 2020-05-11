@@ -35,18 +35,19 @@ public class AlbumListViewHolder extends RecyclerView.ViewHolder implements View
     }
 
     public void bindData(final AlbumsModel.TopAlbumsModel.AlbumModel viewModel) {
-        albumNameTextView.setText(viewModel.name);
-        albumName = viewModel.name;
-        artistName = viewModel.artist.name;
-        if (viewModel.image != null && viewModel.image.get(2) != null && !viewModel.image.get(2).text.isEmpty()) {
-            Picasso.get().load(viewModel.image.get(2).text).into(imageView);
+        if (viewModel != null && !viewModel.name.isEmpty() && !viewModel.name.equals("(null)")) {
+            albumNameTextView.setText(viewModel.name);
+            albumName = viewModel.name;
+            artistName = viewModel.artist.name;
+            if (viewModel.image != null && viewModel.image.get(2) != null && !viewModel.image.get(2).text.isEmpty()) {
+                Picasso.get().load(viewModel.image.get(2).text).into(imageView);
+            }
         }
         layout.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
         Intent i = new Intent(context, TrackListActivity.class);
         i.putExtra(ALBUM_NAME, albumName);
         i.putExtra(ARTIST_NAME, artistName);
