@@ -1,5 +1,7 @@
 package com.example.musicdatabase;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,7 +42,7 @@ public class AlbumsFragment extends Fragment {
                     if (response.body() != null) {
                         if (response.body().topAlbums.albumModel != null) {
                             if (response.body().topAlbums.albumModel.size() > 0) {
-                                AlbumListRecyclerViewAdapter adapter = new AlbumListRecyclerViewAdapter(response.body().topAlbums.albumModel);
+                                AlbumListRecyclerViewAdapter adapter = new AlbumListRecyclerViewAdapter(getContext(), response.body().topAlbums.albumModel);
                                 albumsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                                 albumsRecyclerView.setAdapter(adapter);
                             }
@@ -84,7 +86,7 @@ public class AlbumsFragment extends Fragment {
             searchQuery = args.getString(MainActivity.SEARCH_QUERY);
         }
 
-        if (!searchQuery.equals("")) {
+        if (searchQuery != null && !searchQuery.equals("")) {
             apiInterface.getAlbums(searchQuery, getString(R.string.last_fm_api_key), getString(R.string.response_format)).enqueue(getAlbumsCallback);
         }
     }

@@ -1,38 +1,35 @@
 package com.example.musicdatabase.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.musicdatabase.R;
-import com.example.musicdatabase.retrofit.models.AlbumsModel;
-import com.example.musicdatabase.viewholders.AlbumListViewHolder;
+import com.example.musicdatabase.retrofit.models.TrackModel;
+import com.example.musicdatabase.viewholders.TrackListViewHolder;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AlbumListRecyclerViewAdapter extends RecyclerView.Adapter {
-    private List<AlbumsModel.TopAlbumsModel.AlbumModel> mModels;
-    private Context context;
+public class TrackListRecyclerViewAdapter extends RecyclerView.Adapter {
+    private List<TrackModel.AlbumModel.TracksModel.TrackInfoModel> mModels;
 
-    public AlbumListRecyclerViewAdapter(Context context, List<AlbumsModel.TopAlbumsModel.AlbumModel> models) {
+    public TrackListRecyclerViewAdapter(List<TrackModel.AlbumModel.TracksModel.TrackInfoModel> models) {
         mModels = models;
-        this.context = context;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
-        return new AlbumListViewHolder(context, view);
+        return new TrackListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((AlbumListViewHolder) holder).bindData(mModels.get(position));
+        ((TrackListViewHolder) holder).bindData(mModels.get(position));
     }
 
     @Override
@@ -42,7 +39,6 @@ public class AlbumListRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(final int position) {
-        return R.layout.album_list_viewholder;
+        return R.layout.track_list_view_holder;
     }
-
 }
